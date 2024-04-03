@@ -1,0 +1,26 @@
+name: ProtocolBasedDependenciesExample
+
+options:
+  developmentLanguage: en
+  deploymentTarget:
+    iOS: 15.0
+
+packages:
+  ProtocolBasedDependencies:
+    path: ../
+
+targets:
+  ProtocolBasedDependenciesExample:
+    type: application
+    platform: iOS
+    settings:
+      INFOPLIST_FILE: Info.plist
+      TARGETED_DEVICE_FAMILY: 1
+      PRODUCT_BUNDLE_IDENTIFIER: com.dev.ProtocolBasedDependenciesExample
+      MARKETING_VERSION: 1.0
+      CURRENT_PROJECT_VERSION: 1
+    sources:
+      - ProtocolBasedDependenciesExample
+    dependencies:
+      - package: ProtocolBasedDependencies
+
