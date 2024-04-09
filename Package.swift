@@ -1,6 +1,7 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
+import CompilerPluginSupport
 import PackageDescription
 
 let package = Package(
@@ -10,6 +11,7 @@ let package = Package(
         .macOS(.v10_15),
         .tvOS(.v13),
         .watchOS(.v6),
+        .macCatalyst(.v13),
     ],
     products: [
         .library(
@@ -17,15 +19,26 @@ let package = Package(
             targets: ["ProtocolBasedDependencies"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.0"),
+    ],
     targets: [
+        .macro(
+            name: "ProtocolBasedDependenciesMacros",
+            dependencies: [
+                .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
+                .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
+            ]
+        ),
         .target(
-            name: "ProtocolBasedDependencies"
+            name: "ProtocolBasedDependencies",
+            dependencies: ["ProtocolBasedDependenciesMacros"]
         ),
         .testTarget(
             name: "ProtocolBasedDependenciesTests",
             dependencies: [
-                "ProtocolBasedDependencies",
+                "ProtocolBasedDependenciesMacros",
+                .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
             ]
         ),
     ]
