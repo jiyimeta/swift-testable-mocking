@@ -5,7 +5,7 @@ public macro Mock() = #externalMacro(
     type: "MockMacro"
 )
 
-@attached(peer, names: named(Mock), arbitrary)
+@attached(peer)
 public macro MockHandlerName(_ name: String) = #externalMacro(
     module: "ProtocolBasedDependenciesMacros",
     type: "MockHandlerNameMacro"
