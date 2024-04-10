@@ -4,7 +4,7 @@ import SwiftUI
 struct ProtocolBasedDependenciesExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Text("Hello, world!")
         }
     }
 }
