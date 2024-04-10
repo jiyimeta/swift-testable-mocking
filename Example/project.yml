@@ -23,4 +23,14 @@ targets:
       - ProtocolBasedDependenciesExample
     dependencies:
       - package: ProtocolBasedDependencies
-
+  ProtocolBasedDependenciesExampleTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - ProtocolBasedDependenciesExampleTests
+    settings:
+      base:
+        INFOPLIST_FILE: Info.plist
+    dependencies:
+      - package: ProtocolBasedDependencies
+      - target: ProtocolBasedDependenciesExample
