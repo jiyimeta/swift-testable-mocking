@@ -4,8 +4,8 @@ import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
 import XCTest
 
-#if canImport(ProtocolBasedDependenciesMacros)
-    import ProtocolBasedDependenciesMacros
+#if canImport(TestableMockingMacros)
+    import TestableMockingMacros
 
     let testMacros: [String: Macro.Type] = [
         "Mock": MockMacro.self,
@@ -13,9 +13,9 @@ import XCTest
     ]
 #endif
 
-final class ProtocolBasedDependenciesTests: XCTestCase {
+final class TestableMockingTests: XCTestCase {
     func testMacro() throws {
-        #if canImport(ProtocolBasedDependenciesMacros)
+        #if canImport(TestableMockingMacros)
             assertMacroExpansion(
                 """
                 @Mock
@@ -54,6 +54,7 @@ final class ProtocolBasedDependenciesTests: XCTestCase {
                     }
                 }
                 """,
+                // swiftlint:disable line_length
                 expandedSource: """
                 struct MockCounter: CounterProtocol {
                     @available(*, unavailable)
@@ -164,6 +165,7 @@ final class ProtocolBasedDependenciesTests: XCTestCase {
                             }
                 }
                 """,
+                // swiftlint:enable line_length
                 macros: testMacros
             )
         #else

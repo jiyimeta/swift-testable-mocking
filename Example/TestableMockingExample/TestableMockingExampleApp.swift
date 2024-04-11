@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct ProtocolBasedDependenciesExampleApp: App {
+struct TestableMockingExampleApp: App {
     var body: some Scene {
         WindowGroup {
             Text("Hello, world!")

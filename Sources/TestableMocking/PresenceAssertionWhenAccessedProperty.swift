@@ -25,7 +25,8 @@ public struct PresenceAssertedWhenAccessedProperty<Value> {
     ///   - name: Property name displayed when assertion fails
     ///   - value: Closure that returns the value provided by the property
     ///   - default: Default value provided by the property when assertion fails
-    ///   - failureHandler: Handler called when accessed to the property and its value has not been provided. It should be XCTFailure if test environment, otherwise assertionFailure.
+    ///   - failureHandler: Handler called when accessed to the property and its value has not
+    ///     been provided. It should be XCTFailure if test environment, otherwise assertionFailure.
     public init(
         name: String,
         value: (() -> Value)?,

@@ -1,12 +1,12 @@
 @attached(memberAttribute)
 @attached(member, names: arbitrary)
 public macro Mock() = #externalMacro(
-    module: "ProtocolBasedDependenciesMacros",
+    module: "TestableMockingMacros",
     type: "MockMacro"
 )
 
 @attached(peer)
 public macro MockHandlerName(_ name: String) = #externalMacro(
-    module: "ProtocolBasedDependenciesMacros",
+    module: "TestableMockingMacros",
     type: "MockHandlerNameMacro"
 )

@@ -1,6 +1,6 @@
 extension Array {
     func mapLast(_ transform: (Element) throws -> Element) rethrows -> Self {
-        guard count > 0 else {
+        guard !isEmpty else {
             return self
         }
 

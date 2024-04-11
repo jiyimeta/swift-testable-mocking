@@ -12,7 +12,7 @@ extension DiagnosticsError {
                 Diagnostic(
                     node: node,
                     message: MacroExpansionErrorMessage(message)
-                )
+                ),
             ]
         )
     }

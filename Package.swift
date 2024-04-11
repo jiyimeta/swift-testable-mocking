@@ -5,7 +5,7 @@ import CompilerPluginSupport
 import PackageDescription
 
 let package = Package(
-    name: "swift-protocol-based-dependencies",
+    name: "swift-testable-mocking",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15),
@@ -15,8 +15,8 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "ProtocolBasedDependencies",
-            targets: ["ProtocolBasedDependencies"]
+            name: "TestableMocking",
+            targets: ["TestableMocking"]
         ),
     ],
     dependencies: [
@@ -24,20 +24,20 @@ let package = Package(
     ],
     targets: [
         .macro(
-            name: "ProtocolBasedDependenciesMacros",
+            name: "TestableMockingMacros",
             dependencies: [
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
             ]
         ),
         .target(
-            name: "ProtocolBasedDependencies",
-            dependencies: ["ProtocolBasedDependenciesMacros"]
+            name: "TestableMocking",
+            dependencies: ["TestableMockingMacros"]
         ),
         .testTarget(
-            name: "ProtocolBasedDependenciesTests",
+            name: "TestableMockingTests",
             dependencies: [
-                "ProtocolBasedDependenciesMacros",
+                "TestableMockingMacros",
                 .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
             ]
         ),

@@ -2,7 +2,7 @@ import SwiftCompilerPlugin
 import SwiftSyntaxMacros
 
 @main
-struct ProtocolBasedDependenciesPlugin: CompilerPlugin {
+struct TestableMockingPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         MockHandlerNameMacro.self,
         MockMacro.self,

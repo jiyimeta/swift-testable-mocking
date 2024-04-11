@@ -58,7 +58,7 @@ disabled_rules:
   - superfluous_disable_command
   # - switch_case_alignment
   # - syntactic_sugar
-  # - todo
+  - todo
   - trailing_comma
   # - trailing_newline
   # - trailing_semicolon
@@ -183,7 +183,7 @@ line_length:
   warning: 120
 
 file_length:
-  warning: 300
+  warning: 450
 
 type_body_length:
   warning: 300

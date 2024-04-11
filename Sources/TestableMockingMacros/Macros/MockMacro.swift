@@ -23,11 +23,10 @@ extension MockMacro: MemberAttributeMacro {
         }
 
         return [
-            AttributeSyntax(identifierName: "available(*, unavailable)")
+            AttributeSyntax(identifierName: "available(*, unavailable)"),
         ]
     }
 }
-
 
 // MARK: - Member macro
 
@@ -116,7 +115,7 @@ extension MockMacro: MemberMacro {
                             assertionFailure($0, file: file, line: line)
                             #endif
                         }
-                        """
+                        """,
                     ] + propertyInfos.map { propertyInfo in
                         """
                         \(propertyInfo.nameWithUnderscore) = PresenceAssertedWhenAccessedProperty(
@@ -133,7 +132,7 @@ extension MockMacro: MemberMacro {
                     } + [
                         """
                         self.failureHandler = failureHandler
-                        """
+                        """,
                     ]
                 )
             )
@@ -226,7 +225,8 @@ extension MockMacro {
 
                                     if statements.count == 1,
                                        let statement = statements.first,
-                                       let expr = statement.item.expr {
+                                       let expr = statement.item.expr
+                                    {
                                         ReturnStmtSyntax(expression: expr)
                                     } else if statements.isEmpty {
                                         ReturnStmtSyntax()

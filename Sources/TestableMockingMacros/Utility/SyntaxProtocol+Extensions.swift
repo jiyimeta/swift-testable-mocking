@@ -5,6 +5,6 @@ extension SyntaxProtocol {
         _ keyPath: WritableKeyPath<Self, T>,
         block: (T) throws -> T
     ) rethrows -> Self {
-        with(keyPath, try block(self[keyPath: keyPath]))
+        try with(keyPath, block(self[keyPath: keyPath]))
     }
 }

@@ -4,5 +4,5 @@ protocol CounterProtocol {
 
     func doNothing()
     func doSomething() -> Int
-    func doSomething(throwing error: some Error) async throws -> Int
+    func doSomething(with parameter: Int) throws -> Int
 }

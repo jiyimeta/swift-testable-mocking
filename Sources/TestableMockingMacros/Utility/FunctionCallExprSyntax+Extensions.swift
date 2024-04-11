@@ -6,11 +6,11 @@ extension FunctionCallExprSyntax {
         _ calledName: String,
         @LabeledExprListBuilder arguments: () throws -> LabeledExprListSyntax
     ) rethrows {
-        self.init(
+        try self.init(
             calledExpression: DeclReferenceExprSyntax(
                 baseName: .identifier(calledName)
             ),
-            arguments: try LabeledExprListSyntax(itemsBuilder: arguments)
+            arguments: LabeledExprListSyntax(itemsBuilder: arguments)
         )
     }
 }

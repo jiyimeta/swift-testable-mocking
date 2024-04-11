@@ -1,4 +1,4 @@
-name: ProtocolBasedDependenciesExample
+name: TestableMockingExample
 
 options:
   developmentLanguage: en
@@ -6,31 +6,31 @@ options:
     iOS: 15.0
 
 packages:
-  ProtocolBasedDependencies:
+  TestableMocking:
     path: ../
 
 targets:
-  ProtocolBasedDependenciesExample:
+  TestableMockingExample:
     type: application
     platform: iOS
     settings:
       INFOPLIST_FILE: Info.plist
       TARGETED_DEVICE_FAMILY: 1
-      PRODUCT_BUNDLE_IDENTIFIER: com.dev.ProtocolBasedDependenciesExample
+      PRODUCT_BUNDLE_IDENTIFIER: com.dev.TestableMockingExample
       MARKETING_VERSION: 1.0
       CURRENT_PROJECT_VERSION: 1
     sources:
-      - ProtocolBasedDependenciesExample
+      - TestableMockingExample
     dependencies:
-      - package: ProtocolBasedDependencies
-  ProtocolBasedDependenciesExampleTests:
+      - package: TestableMocking
+  TestableMockingExampleTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - ProtocolBasedDependenciesExampleTests
+      - TestableMockingExampleTests
     settings:
       base:
         INFOPLIST_FILE: Info.plist
     dependencies:
-      - package: ProtocolBasedDependencies
-      - target: ProtocolBasedDependenciesExample
+      - package: TestableMocking
+      - target: TestableMockingExample
