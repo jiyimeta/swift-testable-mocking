@@ -87,7 +87,7 @@ struct MockCounter: CounterProtocol {
         title: (() -> String)? = nil,
         doNothing: (() -> Void)? = nil,
         doSomething: (() -> Int)? = nil,
-        doSomethingWithThrowingError: ((_ error: any Error) async throws -> Int)? = nil
+        doSomethingWithThrowingError: ((_ error: (any Error)?) async throws -> Int)? = nil
     ) { /* ... */ }
 
     func doNothing() {}
