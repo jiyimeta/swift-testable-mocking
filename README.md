@@ -94,3 +94,5 @@ struct MockCounter: CounterProtocol {
     func doSomething(with parameter: Int) throws -> Int { /* ... */ }
 }
 ```
+
+If there are methods with same name, you can rename the handler as an initializer parameter, by `@MockHandlerName`.
