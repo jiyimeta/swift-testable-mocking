@@ -96,3 +96,7 @@ struct MockCounter: CounterProtocol {
 ```
 
 If there are methods with same name, you can rename the handler as an initializer parameter, by `@MockHandlerName`.
+
+## License
+
+This library is released under the MIT license. See [LICENSE](LICENSE) for details.
